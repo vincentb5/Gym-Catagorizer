@@ -1,12 +1,16 @@
+import os
 import requests
 from flask import Flask, send_from_directory, jsonify, request
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__, static_folder='.', static_url_path='')
 
-# ── Roboflow config — fill these in ──────────────────────────
-ROBOFLOW_API_KEY = "vNxmT82xbBY1aPkw1gvI"
-ROBOFLOW_MODEL   = "gym-intemcatagorizer"
-ROBOFLOW_VERSION = "2"
+# ── Roboflow config ───────────────────────────────────────────
+ROBOFLOW_API_KEY = os.getenv("ROBOFLOW_API_KEY")
+ROBOFLOW_MODEL   = os.getenv("ROBOFLOW_MODEL")
+ROBOFLOW_VERSION = os.getenv("ROBOFLOW_VERSION")
 
 
 # ── Serve the frontend ────────────────────────────────────────
