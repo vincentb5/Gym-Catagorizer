@@ -267,14 +267,14 @@ function resetResults() {
 }
 
 
-// ─── MOCK ANALYSIS ───────────────────────────────────────────
-// Simulates the AI scanning process with a timed animation sequence.
-// Replace the setTimeout blocks here with real API calls later.
+// ─── ANALYSIS ────────────────────────────────────────────────
+// Converts the preview image to base64, sends it to Flask /analyze,
+// then displays the real Roboflow results.
 
-analyzeBtn.addEventListener('click', () => {
+analyzeBtn.addEventListener('click', async () => {
   if (!previewImg.src) return;
 
-  // Disable button during analysis
+  // Disable button and show spinner
   analyzeBtn.disabled = true;
   analyzeBtn.innerHTML = `
     <svg class="spin" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -283,86 +283,83 @@ analyzeBtn.addEventListener('click', () => {
     Analyzing…
   `;
 
-  // Add spin CSS inline (simple)
   const style = document.getElementById('spin-style') || document.createElement('style');
   style.id = 'spin-style';
   style.textContent = '.spin { animation: spinIcon 0.8s linear infinite; } @keyframes spinIcon { to { transform: rotate(360deg); } }';
   document.head.appendChild(style);
 
-  // Start scan bar animation
   scanBar.classList.add('active');
-
-  // Step 1: "Scanning"
-  statusDot.className   = 'status-dot scanning';
+  statusDot.className    = 'status-dot scanning';
   statusText.textContent = 'Scanning image…';
 
-  // Step 2: Show results (simulates 2s AI response time)
-  setTimeout(() => {
+  try {
+    // Convert the displayed image to a base64 data URL
+    const canvas  = document.createElement('canvas');
+    canvas.width  = previewImg.naturalWidth;
+    canvas.height = previewImg.naturalHeight;
+    canvas.getContext('2d').drawImage(previewImg, 0, 0);
+    const imageData = canvas.toDataURL('image/jpeg');
+
+    statusText.textContent = 'Sending to Roboflow…';
+
+    const response = await fetch('/analyze', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ image: imageData })
+    });
+
+    const result = await response.json();
+
     scanBar.classList.remove('active');
-    statusDot.className   = 'status-dot scanning';
-    statusText.textContent = 'Identifying equipment…';
-  }, 900);
 
-  setTimeout(() => {
-    statusDot.className   = 'status-dot scanning';
-    statusText.textContent = 'Estimating price…';
-  }, 1600);
+    if (!response.ok || result.error) {
+      statusDot.className    = 'status-dot waiting';
+      statusText.textContent = result.error || 'Analysis failed';
+      analyzeBtn.disabled    = false;
+      analyzeBtn.innerHTML   = 'Try Again';
+      return;
+    }
 
-  setTimeout(() => {
-    statusDot.className   = 'status-dot done';
+    statusDot.className    = 'status-dot done';
     statusText.textContent = 'Analysis complete';
 
-    // Reveal results with staggered delay
+    // Reveal results with real data from Roboflow
     revealResult(cardType, valType, metaType, badgeType,
-      PLACEHOLDER_RESULTS.type.value,
-      PLACEHOLDER_RESULTS.type.meta,
-      PLACEHOLDER_RESULTS.type.badge,
-      0
-    );
+      result.type.value, result.type.meta, result.type.badge, 0);
 
     revealResult(cardPrice, valPrice, metaPrice, badgePrice,
-      PLACEHOLDER_RESULTS.price.value,
-      PLACEHOLDER_RESULTS.price.meta,
-      PLACEHOLDER_RESULTS.price.badge,
-      150
-    );
+      result.price.value, result.price.meta, result.price.badge, 150);
 
     revealResult(cardMaterial, valMaterial, metaMaterial, badgeMaterial,
-      PLACEHOLDER_RESULTS.material.value,
-      PLACEHOLDER_RESULTS.material.meta,
-      PLACEHOLDER_RESULTS.material.badge,
-      300
-    );
+      result.material.value, result.material.meta, result.material.badge, 300);
 
-    // Animate confidence bar
+    // Animate confidence bar with real confidence score
     setTimeout(() => {
       confidenceBlock.hidden = false;
-      const targetPct = 94; // placeholder confidence
-
-      // Animate from 0 → targetPct
+      const targetPct = result.confidence;
       let current = 0;
       const interval = setInterval(() => {
         current += 2;
-        if (current >= targetPct) {
-          current = targetPct;
-          clearInterval(interval);
-        }
+        if (current >= targetPct) { current = targetPct; clearInterval(interval); }
         confVal.textContent = current + '%';
         confBar.style.width = current + '%';
       }, 16);
     }, 400);
 
-    // Re-enable button (for re-analysis)
-    analyzeBtn.disabled = false;
-    analyzeBtn.innerHTML = `
-      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <circle cx="11" cy="11" r="8"/>
-        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-      </svg>
-      Re-Analyze
-    `;
+  } catch (err) {
+    scanBar.classList.remove('active');
+    statusDot.className    = 'status-dot waiting';
+    statusText.textContent = 'Could not reach server';
+  }
 
-  }, 2200);
+  analyzeBtn.disabled = false;
+  analyzeBtn.innerHTML = `
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="8"/>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    Re-Analyze
+  `;
 });
 
 
