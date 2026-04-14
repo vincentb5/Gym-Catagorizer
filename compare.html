@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IronScan — Compare Equipment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="logo-text">IRON<span class="logo-dot">SCAN</span></span></a>
+      <ul class="nav-links">
+        <li><a href="/">Scanner</a></li>
+        <li><a href="browse.html">Browse</a></li>
+        <li><a href="compare.html" class="active">Compare</a></li>
+        <li><a href="history.html">History</a></li>
+      </ul>
+      <a href="/" class="nav-cta">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        Scan Now
+      </a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/">Scanner</a>
+      <a href="browse.html">Browse</a>
+      <a href="compare.html">Compare</a>
+      <a href="history.html">History</a>
+      <a href="/" class="mobile-cta">Scan Now</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <p class="section-label">Side-by-side</p>
+      <h1>Compare Equipment</h1>
+      <p>Upload two photos to compare their type, resale price, and value side-by-side.</p>
+    </div>
+  </div>
+
+  <div style="padding:40px 0 80px;">
+    <div class="container">
+
+      <!-- Two upload slots -->
+      <div class="compare-layout">
+
+        <!-- Slot A -->
+        <div class="compare-slot" id="slotA">
+          <div class="compare-slot-header">
+            <div class="compare-slot-num">A</div>
+            <span class="compare-slot-title">Item A</span>
+          </div>
+          <div id="dropA" class="compare-drop">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            <p>Click or drop image A</p>
+            <label class="btn-upload" style="margin-top:4px">
+              Browse
+              <input type="file" id="fileA" accept="image/*" hidden>
+            </label>
+          </div>
+          <div id="previewA" style="display:none;" class="compare-preview">
+            <img id="imgA" src="" alt="Item A">
+            <div class="compare-result-mini" id="resultA" style="display:none">
+              <div class="compare-mini-type" id="typeA">—</div>
+              <div class="compare-mini-price" id="priceA">—</div>
+            </div>
+          </div>
+          <button class="compare-result-btn" id="analyzeA" disabled>
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            Analyze A
+          </button>
+        </div>
+
+        <!-- Slot B -->
+        <div class="compare-slot" id="slotB">
+          <div class="compare-slot-header">
+            <div class="compare-slot-num" style="background:rgba(34,197,94,0.12);border-color:rgba(34,197,94,0.3);color:var(--green)">B</div>
+            <span class="compare-slot-title">Item B</span>
+          </div>
+          <div id="dropB" class="compare-drop">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            <p>Click or drop image B</p>
+            <label class="btn-upload" style="margin-top:4px;background:var(--green)">
+              Browse
+              <input type="file" id="fileB" accept="image/*" hidden>
+            </label>
+          </div>
+          <div id="previewB" style="display:none;" class="compare-preview">
+            <img id="imgB" src="" alt="Item B">
+            <div class="compare-result-mini" id="resultB" style="display:none">
+              <div class="compare-mini-type" id="typeB">—</div>
+              <div class="compare-mini-price" id="priceB">—</div>
+            </div>
+          </div>
+          <button class="compare-result-btn" id="analyzeB" disabled style="background:var(--green);color:#000">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            Analyze B
+          </button>
+        </div>
+      </div>
+
+      <!-- Comparison table -->
+      <div class="compare-table" id="compareTable">
+        <div class="compare-table-header">
+          <div>Feature</div>
+          <div id="headerA">Item A</div>
+          <div id="headerB">Item B</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-row-label">Type</div>
+          <div class="compare-row-val" id="cTypeA">—</div>
+          <div class="compare-row-val" id="cTypeB">—</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-row-label">Resale Price</div>
+          <div class="compare-row-val price-val" id="cPriceA">—</div>
+          <div class="compare-row-val price-val" id="cPriceB">—</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-row-label">About</div>
+          <div class="compare-row-val" id="cBlurbA" style="font-size:13px;font-weight:400">—</div>
+          <div class="compare-row-val" id="cBlurbB" style="font-size:13px;font-weight:400">—</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-row-label">Confidence</div>
+          <div class="compare-row-val" id="cConfA">—</div>
+          <div class="compare-row-val" id="cConfB">—</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-row-label">eBay Link</div>
+          <div class="compare-row-val" id="cEbayA">—</div>
+          <div class="compare-row-val" id="cEbayB">—</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 IronScan. All rights reserved.</p>
+        <p>AI estimates only — not financial or purchasing advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="compare.js"></script>
+</body>
+</html>

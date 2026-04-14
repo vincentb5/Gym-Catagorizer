@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IronScan — Gym Equipment Categorizer</title>
+  <title>IronScan — Gym Equipment Marketplace</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,75 +14,59 @@
   <!-- ═══ NAVBAR ════════════════════════════════════════════════ -->
   <nav class="navbar">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <span class="logo-icon">⚡</span>
-        <span class="logo-text">IRONSCAN</span>
+      <a href="/" class="nav-logo">
+        <span class="logo-text">IRON<span class="logo-dot">SCAN</span></span>
       </a>
       <ul class="nav-links">
-        <li><a href="#how">How it works</a></li>
-        <li><a href="#analyze">Analyze</a></li>
-        <li><a href="#tech">Technology</a></li>
+        <li><a href="/" class="active">Scanner</a></li>
+        <li><a href="browse.html">Browse</a></li>
+        <li><a href="compare.html">Compare</a></li>
+        <li><a href="history.html">History</a></li>
       </ul>
-      <a href="#analyze" class="nav-cta">Try it free</a>
+      <a href="#analyze" class="nav-cta">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        Scan Now
+      </a>
       <button class="hamburger" id="hamburger" aria-label="Open menu">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#how">How it works</a>
-      <a href="#analyze">Analyze</a>
-      <a href="#tech">Technology</a>
-      <a href="#analyze" class="mobile-cta">Try it free</a>
+      <a href="/">Scanner</a>
+      <a href="browse.html">Browse</a>
+      <a href="compare.html">Compare</a>
+      <a href="history.html">History</a>
+      <a href="#analyze" class="mobile-cta">Scan Now</a>
     </div>
   </nav>
-
-  <!-- ═══ BACKGROUND EFFECTS ════════════════════════════════════ -->
-  <div class="hero-grid"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
 
   <!-- ═══ HERO ══════════════════════════════════════════════════ -->
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
-        AI-Powered Equipment Recognition
-      </div>
       <h1 class="hero-title">
-        SCAN.<br>
-        IDENTIFY.<br>
-        <span class="accent-line">CATEGORIZE.</span>
+        Figure out what<br>your gear is <span class="highlight">worth.</span>
       </h1>
       <p class="hero-sub">
-        Upload a photo of any gym equipment and get instant AI-driven identification,
-        pricing estimates, and material analysis in seconds.
+        Snap a photo of any gym equipment. We'll tell you what it is,
+        what it sells for used, and write the listing for you.
       </p>
       <div class="hero-actions">
         <a href="#analyze" class="btn-primary">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
           Start Scanning
         </a>
-        <a href="#how" class="btn-ghost">Learn how it works →</a>
+        <a href="browse.html" class="btn-ghost">Browse price guide</a>
       </div>
       <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">200+</span>
-          <span class="stat-label">Equipment types</span>
-        </div>
+        <div class="stat"><span class="stat-num">32</span><span class="stat-label">Equipment types</span></div>
         <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">94%</span>
-          <span class="stat-label">Accuracy</span>
-        </div>
+        <div class="stat"><span class="stat-num">94%</span><span class="stat-label">Accuracy</span></div>
         <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">2s</span>
-          <span class="stat-label">Avg. scan time</span>
-        </div>
+        <div class="stat"><span class="stat-num">~3s</span><span class="stat-label">Scan time</span></div>
       </div>
     </div>
 
@@ -90,7 +74,7 @@
       <div class="mockup-card">
         <div class="scan-line"></div>
         <div class="mockup-img-area">
-          <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
             <rect x="3" y="3" width="18" height="18" rx="2"/>
             <circle cx="8.5" cy="8.5" r="1.5"/>
             <path d="m21 15-5-5L5 21"/>
@@ -99,26 +83,25 @@
         </div>
         <div class="mockup-results">
           <div class="mockup-tag type">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
-              <line x1="7" y1="7" x2="7.01" y2="7"/>
             </svg>
             Adjustable Dumbbell
           </div>
           <div class="mockup-tag price">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <line x1="12" y1="1" x2="12" y2="23"/>
               <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
             </svg>
             $120 – $180
           </div>
           <div class="mockup-tag material">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-              <polyline points="2 17 12 22 22 17"/>
-              <polyline points="2 12 12 17 22 12"/>
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
             </svg>
-            Steel + Rubber
+            Strength training staple
           </div>
         </div>
       </div>
@@ -129,46 +112,101 @@
   <!-- ═══ HOW IT WORKS ══════════════════════════════════════════ -->
   <section class="how-section" id="how">
     <div class="container">
-      <p class="section-label">Process</p>
-      <h2 class="section-title">How It Works</h2>
+      <h2 class="section-title">How it works</h2>
       <div class="steps-grid">
-
         <div class="step-card step-card--accent">
           <span class="step-number">01</span>
           <div class="step-icon">
             <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="17 8 12 3 7 8"/>
-              <line x1="12" y1="3" x2="12" y2="15"/>
+              <polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
             </svg>
           </div>
           <h3>Upload a Photo</h3>
-          <p>Drag and drop any gym equipment photo, or paste an image URL. Supports JPG, PNG, WEBP, and more.</p>
+          <p>Drag and drop any gym equipment photo, or paste an image URL. Supports JPG, PNG, WEBP and more.</p>
         </div>
-
         <div class="step-card">
           <span class="step-number">02</span>
           <div class="step-icon">
             <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <circle cx="11" cy="11" r="8"/>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
             </svg>
           </div>
-          <h3>AI Scans &amp; Identifies</h3>
-          <p>Our computer vision model analyzes shape, texture, and context to accurately identify the equipment type.</p>
+          <h3>We identify and price it</h3>
+          <p>Our model spots the equipment and pulls real sold prices from eBay and Facebook Marketplace — not retail, actual resale.</p>
         </div>
-
         <div class="step-card">
           <span class="step-number">03</span>
           <div class="step-icon">
             <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              <polyline points="9 11 12 14 22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
             </svg>
           </div>
-          <h3>Get Instant Results</h3>
-          <p>Receive equipment type, estimated retail price range, and material composition — all in under 3 seconds.</p>
+          <h3>Copy and post</h3>
+          <p>One click generates a title, price, and description you can paste straight into eBay or Facebook Marketplace.</p>
         </div>
+      </div>
+    </div>
+  </section>
 
+
+  <!-- ═══ SUPPORTED EQUIPMENT ══════════════════════════════════ -->
+  <section class="supported-section" id="supported">
+    <div class="container">
+      <h2 class="section-title">Supported Equipment</h2>
+      <p class="supported-sub">Scan-ready today — more being trained and added soon.</p>
+      <div class="supported-grid">
+        <div class="supported-item live">
+          <span class="supported-dot live"></span>
+          <span class="supported-name">Kettlebell</span>
+          <span class="supported-badge live">Live</span>
+        </div>
+        <div class="supported-item live">
+          <span class="supported-dot live"></span>
+          <span class="supported-name">Barbell</span>
+          <span class="supported-badge live">Live</span>
+        </div>
+        <div class="supported-item live">
+          <span class="supported-dot live"></span>
+          <span class="supported-name">Dumbbell</span>
+          <span class="supported-badge live">Live</span>
+        </div>
+        <div class="supported-item soon">
+          <span class="supported-dot soon"></span>
+          <span class="supported-name">Treadmill</span>
+          <span class="supported-badge soon">In Progress</span>
+        </div>
+        <div class="supported-item soon">
+          <span class="supported-dot soon"></span>
+          <span class="supported-name">Bench Press</span>
+          <span class="supported-badge soon">In Progress</span>
+        </div>
+        <div class="supported-item soon">
+          <span class="supported-dot soon"></span>
+          <span class="supported-name">Cable Machine</span>
+          <span class="supported-badge soon">In Progress</span>
+        </div>
+        <div class="supported-item soon">
+          <span class="supported-dot soon"></span>
+          <span class="supported-name">Pull-up Bar</span>
+          <span class="supported-badge soon">In Progress</span>
+        </div>
+        <div class="supported-item soon">
+          <span class="supported-dot soon"></span>
+          <span class="supported-name">Resistance Bands</span>
+          <span class="supported-badge soon">In Progress</span>
+        </div>
+        <div class="supported-item soon">
+          <span class="supported-dot soon"></span>
+          <span class="supported-name">Rowing Machine</span>
+          <span class="supported-badge soon">In Progress</span>
+        </div>
+        <div class="supported-item soon">
+          <span class="supported-dot soon"></span>
+          <span class="supported-name">Exercise Bike</span>
+          <span class="supported-badge soon">In Progress</span>
+        </div>
       </div>
     </div>
   </section>
@@ -177,23 +215,18 @@
   <!-- ═══ ANALYZER ══════════════════════════════════════════════ -->
   <section class="analyze-section" id="analyze">
     <div class="container">
-      <p class="section-label">Try it now</p>
-      <h2 class="section-title">Analyze Equipment</h2>
+      <h2 class="section-title">Scan your equipment</h2>
 
       <div class="analyzer-layout">
 
-        <!-- ── Upload / Preview column ── -->
+        <!-- Upload / Preview column -->
         <div class="upload-panel">
-
-          <!-- Drop Zone (shown before image is loaded) -->
           <div class="drop-zone" id="dropZone" tabindex="0" role="button" aria-label="Upload image">
-
             <div class="drop-default" id="dropDefault">
               <div class="drop-icon">
-                <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                  <polyline points="17 8 12 3 7 8"/>
-                  <line x1="12" y1="3" x2="12" y2="15"/>
+                  <polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
                 </svg>
               </div>
               <p class="drop-main">Drop an image here</p>
@@ -208,19 +241,15 @@
                 <button class="btn-url" id="loadUrlBtn">Load</button>
               </div>
             </div>
-
-            <!-- Shown while user is dragging a file over the zone -->
             <div class="drop-overlay" id="dropOverlay">
-              <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="17 8 12 3 7 8"/>
-                <line x1="12" y1="3" x2="12" y2="15"/>
+                <polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
               </svg>
               Release to upload
             </div>
           </div>
 
-          <!-- Preview Panel (shown after image is loaded) -->
           <div class="preview-panel" id="previewPanel" hidden>
             <div class="preview-header">
               <span class="preview-label">Preview</span>
@@ -231,22 +260,18 @@
               <div class="preview-scan-bar" id="scanBar"></div>
             </div>
             <button class="btn-analyze" id="analyzeBtn">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <circle cx="11" cy="11" r="8"/>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
               </svg>
               Analyze Equipment
             </button>
           </div>
+        </div>
 
-        </div><!-- /upload-panel -->
-
-
-        <!-- ── Results column ── -->
+        <!-- Results column -->
         <div class="results-panel">
-
           <div class="results-header">
-            <span class="results-title">ANALYSIS RESULTS</span>
+            <span class="results-title">Analysis Results</span>
             <div class="results-status">
               <span class="status-dot waiting"></span>
               <span id="statusText">Waiting for image…</span>
@@ -254,11 +279,10 @@
           </div>
 
           <div class="result-cards">
-
             <!-- Equipment Type -->
             <div class="result-card" id="cardType">
               <div class="result-card-icon type-icon">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
                   <line x1="7" y1="7" x2="7.01" y2="7"/>
                 </svg>
@@ -271,42 +295,48 @@
               <span class="result-card-badge" id="badgeType"></span>
             </div>
 
-            <!-- Price Range -->
+            <!-- Price -->
             <div class="result-card" id="cardPrice">
               <div class="result-card-icon price-icon">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <line x1="12" y1="1" x2="12" y2="23"/>
                   <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                 </svg>
               </div>
               <div class="result-card-body">
-                <p class="result-card-label">Est. Price Range</p>
+                <p class="result-card-label">Est. Resale Price</p>
                 <p class="result-card-value" id="valPrice">—</p>
-                <p class="result-card-meta" id="metaPrice">Retail market average</p>
+                <p class="result-card-meta" id="metaPrice">eBay / FB Marketplace</p>
+                <a id="ebayLink" href="#" target="_blank" rel="noopener noreferrer">View on eBay →</a>
               </div>
               <span class="result-card-badge" id="badgePrice"></span>
             </div>
 
-            <!-- Material -->
+            <!-- About -->
             <div class="result-card" id="cardMaterial">
               <div class="result-card-icon material-icon">
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                  <polyline points="2 17 12 22 22 17"/>
-                  <polyline points="2 12 12 17 22 12"/>
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="8" x2="12" y2="12"/>
+                  <line x1="12" y1="16" x2="12.01" y2="16"/>
                 </svg>
               </div>
               <div class="result-card-body">
-                <p class="result-card-label">Material</p>
-                <p class="result-card-value" id="valMaterial">—</p>
-                <p class="result-card-meta" id="metaMaterial">Composition detected</p>
+                <p class="result-card-label">About</p>
+                <p class="result-card-value" id="valMaterial" style="font-size:14px;font-weight:500;line-height:1.45">—</p>
+                <p class="result-card-meta" id="metaMaterial">AI-generated summary</p>
               </div>
               <span class="result-card-badge" id="badgeMaterial"></span>
             </div>
+          </div>
 
-          </div><!-- /result-cards -->
+          <!-- All detections chips -->
+          <div class="all-detections" id="allDetections" style="display:none">
+            <p class="all-detections-title">Other detections in image</p>
+            <div class="detection-chips" id="detectionChips"></div>
+          </div>
 
-          <!-- Confidence bar (hidden until analysis completes) -->
+          <!-- Confidence bar -->
           <div class="confidence-block" id="confidenceBlock" hidden>
             <div class="conf-label">
               <span>Confidence Score</span>
@@ -317,70 +347,70 @@
             </div>
           </div>
 
-          <p class="results-disclaimer">Results are AI-generated estimates. Prices may vary by region and retailer.</p>
+          <!-- Generate Listing button -->
+          <button class="btn-listing" id="btnListing">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <polyline points="9 11 12 14 22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+            Generate Sell Listing
+          </button>
 
-        </div><!-- /results-panel -->
+          <!-- Listing panel -->
+          <div class="listing-panel" id="listingPanel">
+            <div class="listing-panel-header">
+              <span>Ready-to-Post Listing</span>
+              <button class="btn-close-listing" id="closeListingBtn">✕</button>
+            </div>
+            <!-- Photo preview -->
+            <div class="listing-photo-preview" id="listingPhotoPreview" style="display:none;">
+              <img id="listingPhoto" src="" alt="Equipment photo">
+              <div class="listing-photo-overlay">
+                <span id="listingPhotoLabel"></span>
+              </div>
+            </div>
+            <div class="listing-fields" id="listingFields">
+              <div style="text-align:center;padding:20px;color:var(--text-3);font-size:13px">Generating listing…</div>
+            </div>
+            <div class="listing-actions" id="listingActions" style="display:none">
+              <a id="listingEbayBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-primary" style="flex:1;justify-content:center">
+                Post on eBay →
+              </a>
+            </div>
+          </div>
 
-      </div><!-- /analyzer-layout -->
+          <p class="results-disclaimer">AI estimates only. Prices vary by condition, region, and market.</p>
+        </div>
+      </div>
     </div>
   </section>
 
 
-  <!-- ═══ TECHNOLOGY ════════════════════════════════════════════ -->
+  <!-- ═══ WHY SECTION ══════════════════════════════════════════ -->
   <section class="tech-section" id="tech">
     <div class="container">
-      <div class="tech-inner">
-
-        <div class="tech-text">
-          <p class="section-label">Under the hood</p>
-          <h2 class="section-title">Powered by AI</h2>
-          <p class="tech-desc">
-            IronScan uses advanced computer vision and machine learning to analyze gym
-            equipment from a single image. Our model is trained on thousands of equipment
-            photos spanning commercial and home gym setups worldwide.
-          </p>
-          <ul class="tech-list">
-            <li>
-              <svg class="tech-bullet" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              Multi-class image classification with 200+ equipment categories
-            </li>
-            <li>
-              <svg class="tech-bullet" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              Real-time price estimation using live retail market data
-            </li>
-            <li>
-              <svg class="tech-bullet" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              Material composition analysis via texture recognition
-            </li>
-            <li>
-              <svg class="tech-bullet" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              Confidence scoring for result reliability assessment
-            </li>
-          </ul>
+      <h2 class="section-title" style="margin-bottom:48px;">Why use IronScan?</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">📸</div>
+          <h3>Works from a photo</h3>
+          <p>Just upload a pic from your phone. No serial numbers, no manual lookup — the camera does the work.</p>
         </div>
-
-        <div class="tech-graphic">
-          <div class="tech-rings">
-            <div class="ring ring-1"></div>
-            <div class="ring ring-2"></div>
-            <div class="ring ring-3"></div>
-          </div>
-          <div class="tech-orb"></div>
-          <div class="tech-labels">
-            <span class="tech-lbl lbl-1">Vision AI</span>
-            <span class="tech-lbl lbl-2">Price Data</span>
-            <span class="tech-lbl lbl-3">Materials</span>
-          </div>
+        <div class="why-card">
+          <div class="why-icon">💰</div>
+          <h3>Real resale prices</h3>
+          <p>We pull from actual sold eBay listings and Facebook Marketplace — not retail MSRP that nobody pays.</p>
         </div>
-
+        <div class="why-card">
+          <div class="why-icon">📋</div>
+          <h3>Listing written for you</h3>
+          <p>Title, description, suggested price — all generated and ready to copy-paste in seconds.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🔒</div>
+          <h3>No account needed</h3>
+          <p>Your history is saved locally in your browser. Nothing uploaded, no sign-up, no email required.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -390,36 +420,32 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
-
         <div class="footer-brand">
           <div class="nav-logo">
-            <span class="logo-icon">⚡</span>
-            <span class="logo-text">IRONSCAN</span>
+            <span class="logo-text">IRON<span class="logo-dot">SCAN</span></span>
           </div>
-          <p class="footer-tagline">AI-powered gym equipment identification and pricing.</p>
+          <p class="footer-tagline">AI-powered gym equipment identification and resale pricing.</p>
         </div>
-
         <div class="footer-links">
           <div class="footer-col">
             <h4>Product</h4>
-            <a href="#how">How it works</a>
-            <a href="#analyze">Analyze</a>
-            <a href="#tech">Technology</a>
+            <a href="/">Scanner</a>
+            <a href="browse.html">Browse</a>
+            <a href="compare.html">Compare</a>
+            <a href="history.html">History</a>
           </div>
           <div class="footer-col">
-            <h4>Company</h4>
-            <a href="#">About</a>
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
+            <h4>Info</h4>
+            <a href="#how">How it works</a>
+            <a href="#tech">Technology</a>
           </div>
         </div>
-
       </div>
     </div>
     <div class="footer-bottom">
       <div class="container">
         <p>© 2026 IronScan. All rights reserved.</p>
-        <p class="footer-note">AI estimates only — not financial or purchasing advice.</p>
+        <p>AI estimates only — not financial or purchasing advice.</p>
       </div>
     </div>
   </footer>
