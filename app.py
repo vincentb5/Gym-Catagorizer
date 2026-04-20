@@ -12,9 +12,9 @@ load_dotenv()
 app = Flask(__name__, static_folder='.', static_url_path='')
 
 # ── Roboflow config ───────────────────────────────────────────
-ROBOFLOW_API_KEY = os.getenv("ROBOFLOW_API_KEY")
-ROBOFLOW_MODEL   = os.getenv("ROBOFLOW_MODEL")
-ROBOFLOW_VERSION = os.getenv("ROBOFLOW_VERSION")
+ROBOFLOW_API_KEY = os.getenv("ROBOFLOW_API_KEY", "").strip()
+ROBOFLOW_MODEL   = os.getenv("ROBOFLOW_MODEL", "").strip()
+ROBOFLOW_VERSION = os.getenv("ROBOFLOW_VERSION", "").strip()
 
 # ── OpenAI config ─────────────────────────────────────────────
 openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY", "").strip())
